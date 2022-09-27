@@ -1,52 +1,45 @@
 package org.example;
-
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Welcome to the Adventure");
+        System.out.println(" ");
+        System.out.println("Welcome to the Adventure. You will be teleported into a labyrinth which consists of 9  rooms!" +
+                " The danger of these rooms is unknown, so tread carefully! Your only way out is finding the exit room! ");
+
         Scanner scanner = new Scanner(System.in);
-        System.out.println("menu:");
-        System.out.println("VIS     - vis alle brugere");
-        System.out.println("OPRET   - opret ny bruger");
-        System.out.println("FIND    - find bruger");
-        System.out.println("REDIGER eller EDIT");
-        System.out.println("        - rediger bruger");
-        System.out.println("        - slet bruger");
-        System.out.println(" AFSLUT eller EXIT eller QUIT");
-        System.out.println("        - afslut program");
+        System.out.println(" ");
+        System.out.println("You can find help on what do to by the help of these commandos");
+        System.out.println("look    - Repeat of room description");
+        System.out.println("help   - To get an instruction and overview of possible commandos");
+        System.out.println("exit    - Disconntinue the game");
 
 
-        String menuvalg;
-        menuvalg = scanner.next();
+        String brugerValg;
+        brugerValg = scanner.next();
         do {
 
 
-            switch (menuvalg) {
-                case "VIS":
-                    System.out.println(" Vis alle brugere");
+            switch (brugerValg) {
+                case "look":
+                    System.out.println(" ...");
                     break;
-                case "OPRET":
-                    System.out.println("opret ny bruger");
+                case "help":
+                    System.out.println("...");
                     break;
 
-                case " FIND":
-                    System.out.println("find bruger");
-                    break;
-                case "REDIGER":
-                case "EDIT":
-                    System.out.println("Rediger eller slet bruger");
-                    break;
-                case "AFSLUT":
-                case "EXIT":
-                case "QUIT":
-                    System.out.println("Programmet afsluttes");
+                case "afslut":
+                case "exit":
+                case "quit":
+                    System.out.println("The game is closing");
                     break;
                 default:
                     System.out.println(" Indtast valid input");
-                    break; }
+                    break;
+            }
 
-        } while (menuvalg != "AFSLUT" | menuvalg != "EXIT" | menuvalg != "QUIT") ;
+        } while (brugerValg != "AFSLUT" | brugerValg != "EXIT" | brugerValg != "QUIT");
 
     }
+
 }
