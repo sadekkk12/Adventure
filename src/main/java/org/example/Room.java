@@ -1,5 +1,4 @@
 package org.example;
-
 public class Room {
     private String name;
     private String description;
@@ -8,27 +7,40 @@ public class Room {
     private Room east;
     private Room south;
 
-    public Room (String name, String description){
+    public Room(String name, String description) {
         this.name = name;
         this.description = description;
-
     }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
-    public String getDescription(){
+
+    public String getDescription() {
         return description;
     }
-    public Room getWest(){
-        return west;
-    }
-    public Room getNorth(){
+
+    public Room getNorth() {
         return north;
     }
-    public Room getEast(){
+
+    public Room getEast() {
         return east;
     }
-    public Room getSouth(){
+
+    public Room getSouth() {
         return south;
     }
+
+    public Room getWest() {
+        return west;
+    }
+
+    public void setRoom(Room north, Room east, Room south, Room west) {
+        this.north = north;
+        this.south = east;
+        this.east = south;
+        this.west = west;
+    }
+
 }
