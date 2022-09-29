@@ -5,6 +5,10 @@ public class Adventure {
     private Room endRoom;
     private Room startingRoom;
 
+    public Adventure() {
+        createRooms();
+    }
+
     Room room1 = new Room("1st room", "This is your starting point, now go find the exit!");
     Room room2 = new Room("2nd room", "This room has landmines laying around, tread carefully!");
     Room room3 = new Room("3rd room", "This room has no information");
