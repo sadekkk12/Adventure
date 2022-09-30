@@ -34,9 +34,15 @@ public class Controller {
                 case "n", "north", "go north", "walk north" -> System.out.println("Going north!" + "\n"
                         + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
                         + adventure.getCurrentRoom().getDescription());
-                case "w", "west", "go west", "walk west" -> System.out.println("Going west!");
-                case "e", "east", "go east", "walk east" -> System.out.println("Going east!");
-                case "s", "south", "go south", "walk south" -> System.out.println("Going south!");
+                case "w", "west", "go west", "walk west" -> System.out.println("Going west!" + "\n"
+                        + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
+                        + adventure.getCurrentRoom().getDescription());
+                case "e", "east", "go east", "walk east" -> System.out.println("Going east!" + "\n"
+                        + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
+                        + adventure.getCurrentRoom().getDescription());
+                case "s", "south", "go south", "walk south" -> System.out.println("Going south!" + "\n"
+                        + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
+                        + adventure.getCurrentRoom().getDescription());
                 case "afslut", "exit", "quit" -> System.out.println("The game is ending");
                 default -> System.out.println(" There is no path that way");
             }
