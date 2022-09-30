@@ -8,7 +8,7 @@ public class Adventure {
     public Adventure() {
         createRooms();
     }
-
+// forstår ikke hvorfor der er behov for at skabe public adventure for at fixe fejlen
     Room room1 = new Room("1st room", "This is your starting point, now go find the exit!");
     Room room2 = new Room("2nd room", "This room has landmines laying around, tread carefully!");
     Room room3 = new Room("3rd room", "This room has no information");
@@ -36,7 +36,7 @@ public class Adventure {
         return currentRoomDescirption;
     }
 
-    public void createRooms() {
+    public void createRooms() {  //Creator rooms med hver rooms værdier sat i north, west, east og south
 
         room1.setRoom(null, room2, room4, null);
         room2.setRoom(null, room3, null, room1);
@@ -50,5 +50,39 @@ public class Adventure {
 
         endRoom = room5;
         currentRoom = room1;
+        startingRoom = room1;
+    }
+public boolean goNorth() {
+    if (currentRoom.getNorth() == null) {
+        return false;
+    } else {
+        currentRoom = currentRoom.getNorth();
+        return true;
     }
 }
+    public boolean goWest() {
+        if (currentRoom.getWest() == null) {
+            return false;
+        } else {
+            currentRoom = currentRoom.getWest();
+            return true;
+        }
+    }
+    public boolean goEast() {
+        if (currentRoom.getEast() == null) {
+            return false;
+        } else {
+            currentRoom = currentRoom.getEast();
+            return true;
+        }
+    }
+    public boolean goSouth() {
+        if (currentRoom.getSouth() == null) {
+            return false;
+        } else {
+            currentRoom = currentRoom.getSouth();
+            return true;
+        }
+    }
+}
+

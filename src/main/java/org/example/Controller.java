@@ -31,12 +31,14 @@ public class Controller {
                         + "- s, south, go south, walk south" + "\n"
                         + "- Look " + "\n"
                         + "- exit");
-                case "n", "north", "go north", "walk north" -> System.out.println("going north!");
-                case "w", "west", "go west", "walk west" -> System.out.println("going west!");
-                case "e", "east", "go east", "walk east" -> System.out.println("going east!");
-                case "s", "south", "go south", "walk south" -> System.out.println("going south!");
+                case "n", "north", "go north", "walk north" -> System.out.println("Going north!" + "\n"
+                        + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
+                        + adventure.getCurrentRoom().getDescription());
+                case "w", "west", "go west", "walk west" -> System.out.println("Going west!");
+                case "e", "east", "go east", "walk east" -> System.out.println("Going east!");
+                case "s", "south", "go south", "walk south" -> System.out.println("Going south!");
                 case "afslut", "exit", "quit" -> System.out.println("The game is ending");
-                default -> System.out.println(" Indtast valid input");
+                default -> System.out.println(" There is no path that way");
             }
 
         } while (brugerValg != "afslut" | brugerValg != "exit" | brugerValg != "quit");
