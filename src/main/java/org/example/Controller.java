@@ -8,6 +8,7 @@ public class Controller {
         Adventure adventure = new Adventure();
         Scanner scanner = new Scanner(System.in);
 
+
         System.out.println(" ");
         System.out.println("Welcome to the Adventure. You will be teleported into a labyrinth which consists of 9  rooms!" +
                 " The danger of these rooms is unknown, so tread carefully! Your only way out is finding the exit room! ");
