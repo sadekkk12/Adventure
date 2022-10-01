@@ -43,7 +43,7 @@ public class Room {
         this.west = west;
     }
 
-    public Room getRoom(String direction) {
+    /* public Room getRoom(String direction) {
         Room room = null;
         switch (direction.toLowerCase()) {
             case "north" -> room = north;
@@ -54,7 +54,7 @@ public class Room {
         return room;
     }
 
-    public String getDirection(Room triedRoom) {
+     public String getDirection(Room triedRoom) {
         String direction = "";
         if (north != null && triedRoom.getName().equals(north.getName())) {
             direction = "north";
@@ -68,5 +68,7 @@ public class Room {
         return direction;
 
     }
+
+     */
 
 }

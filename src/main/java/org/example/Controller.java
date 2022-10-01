@@ -24,28 +24,54 @@ public class Controller {
 
             brugerValg = scanner.next();
             switch (brugerValg) {
-                case "look" -> System.out.println(adventure.look());
-                case "help" -> System.out.println("This is an overview of the allowed commandos" + "\n"
+                case "look":
+                    System.out.println(adventure.look());
+                    break;
+                case "help":
+                    System.out.println("This is an overview of the allowed commandos" + "\n"
                         + "- n, north, go north, walk north" + "\n"
                         + "- w, west, go west, walk west" + "\n"
                         + "- e, east, go east, walk east" + "\n"
                         + "- s, south, go south, walk south" + "\n"
                         + "- Look " + "\n"
                         + "- exit");
-                case "n", "north", "go north", "walk north" -> System.out.println("Going north!" + "\n"
-                        + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
-                        + adventure.getCurrentRoom().getDescription());
-                case "w", "west", "go west", "walk west" -> System.out.println("Going west!" + "\n"
-                        + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
-                        + adventure.getCurrentRoom().getDescription());
-                case "e", "east", "go east", "walk east" -> System.out.println("Going east!" + "\n"
-                        + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
-                        + adventure.getCurrentRoom().getDescription());
-                case "s", "south", "go south", "walk south" -> System.out.println("Going south!" + "\n"
-                        + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
-                        + adventure.getCurrentRoom().getDescription());
-                case "afslut", "exit", "quit" -> System.out.println("The game is ending");
-                default -> System.out.println(" There is no path that way");
+                    break;
+                case "n", "north", "go north", "walk north":
+                    if (adventure.goNorth()){
+                        System.out.println("Going north!" + "\n"
+                                + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
+                                + adventure.getCurrentRoom().getDescription());
+                    } else System.out.println("There is no door that way");
+                    break;
+                case "w", "west", "go west", "walk west":
+                    if (adventure.goWest()){
+                        System.out.println("Going west!" + "\n"
+                                + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
+                                + adventure.getCurrentRoom().getDescription());
+                    }else
+                        System.out.println(" There is no door that way");
+                    break;
+                case "e", "east", "go east", "walk east":
+                    if (adventure.goEast()){
+                        System.out.println("Going east!" + "\n"
+                                + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
+                                + adventure.getCurrentRoom().getDescription());
+                    } else
+                        System.out.println("there is no door that way");
+
+                    break;
+                case "s", "south", "go south", "walk south":
+                    if (adventure.goSouth()){
+                        System.out.println("Going south!" + "\n"
+                                + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
+                                + adventure.getCurrentRoom().getDescription());
+                    } else System.out.println("there is no door that way");
+                    break;
+                case "afslut", "exit", "quit":
+                    System.out.println("The game is ending");
+                    break;
+                default:
+                    System.out.println(" There is no path that way");
             }
 
         } while (brugerValg != "afslut" | brugerValg != "exit" | brugerValg != "quit");
