@@ -1,12 +1,13 @@
 package org.example;
 
 public class Adventure {
-    Map map = new Map();
-    private Room currentRoom;
+    /*Map map = new Map();*/
     private Room endRoom;
     private Room startingRoom;
+    Player player;
 
     public Adventure() {
+        player = new Player();
         createRooms();
     }
     Room room1 = new Room("1st room", "This is your starting point, now go find the exit!");
@@ -20,7 +21,7 @@ public class Adventure {
     Room room9 = new Room("9th room", "This is icecold, choose a new room to enter before you die from frostbite!");
 
     public Room getCurrentRoom() {
-        return currentRoom;
+        return player.getCurrentRoom();
     }
 
     public Room getEndRoom() {
@@ -28,11 +29,12 @@ public class Adventure {
     }
 
     public Room getStartingRoom() {
+
         return room1;
     }
 
     public String look() {
-        String currentRoomDescirption = currentRoom.getName() + "\n" + currentRoom.getDescription();
+        String currentRoomDescirption = player.getCurrentRoom().getName() + "\n" + player.getCurrentRoom().getDescription();
         return currentRoomDescirption;
     }
 
@@ -49,9 +51,10 @@ public class Adventure {
         room9.setRoom(room6, null, null, room8);
 
         endRoom = room5;
-        currentRoom = room1;
         startingRoom = room1;
+        player.setCurrentRoom(startingRoom);
     }
+/*
 public boolean goNorth() {
     if (currentRoom.getNorth() == null) {
         return false;
@@ -84,8 +87,9 @@ public boolean goNorth() {
             return true;
         }
     }
+*/
 
-    }
+}
 
 
 

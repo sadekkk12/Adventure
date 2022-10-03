@@ -1,4 +1,4 @@
-package org.example;
+/*package org.example;
 
 public class Map {
 
@@ -57,3 +57,4 @@ public class Map {
         }
     }
 }
+*/

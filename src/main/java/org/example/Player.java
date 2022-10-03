@@ -38,6 +38,14 @@ public class Player {
             return true;
         }
     }
+
+    public void setCurrentRoom(Room currentRoom) {
+        this.currentRoom = currentRoom;
+    }
+
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
 }
 
 /*  public boolean goNorth() {

@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class UserInterface {
     Adventure adventure = new Adventure();
-    Player player = new Player();
+    Player player;
     boolean gameRunning = true;
     Scanner scanner = new Scanner(System.in);
 
     public void StartAdventure() {
 
         Scanner scanner = new Scanner(System.in);
-
+        player = adventure.player;
 
         introduction();
 
@@ -29,7 +29,7 @@ public class UserInterface {
                     help();
                     break;
                 case "n", "north", "go north", "walk north":
-                    if (adventure.goNorth()) {
+                    if (player.goNorth()) {
                         System.out.println("Going north!" + "\n"
                                 + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
                                 + adventure.getCurrentRoom().getDescription());
@@ -40,7 +40,7 @@ public class UserInterface {
                     } else System.out.println("There is no door that way");
                     break;
                 case "w", "west", "go west", "walk west":
-                    if (adventure.goWest()) {
+                    if (player.goWest()) {
                         System.out.println("Going west!" + "\n"
                                 + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
                                 + adventure.getCurrentRoom().getDescription());
@@ -48,7 +48,7 @@ public class UserInterface {
                         System.out.println(" There is no door that way");
                     break;
                 case "e", "east", "go east", "walk east":
-                    if (adventure.goEast()) {
+                    if (player.goEast()) {
                         System.out.println("Going east!" + "\n"
                                 + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
                                 + adventure.getCurrentRoom().getDescription());
@@ -58,7 +58,7 @@ public class UserInterface {
 
                     break;
                 case "s", "south", "go south", "walk south":
-                    if (adventure.goSouth()) {
+                    if (player.goSouth()) {
                         System.out.println("Going south!" + "\n"
                                 + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
                                 + adventure.getCurrentRoom().getDescription());
