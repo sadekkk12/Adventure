@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Controller controller = new Controller();
-        controller.StartAdventure();
+        UserInterface userinterface = new UserInterface();
+        userinterface.StartAdventure();
     }
 }

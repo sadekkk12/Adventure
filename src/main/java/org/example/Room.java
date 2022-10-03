@@ -36,10 +36,10 @@ public class Room {
         return west;
     }
 
-    public void setRoom(Room north, Room east, Room south, Room west) {
+    public void setRoom(Room north, Room south, Room east, Room west) {
         this.north = north;
-        this.south = east;
         this.east = south;
+        this.south = east;
         this.west = west;
     }
 
