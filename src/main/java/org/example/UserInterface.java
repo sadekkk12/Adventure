@@ -3,7 +3,7 @@ package org.example;
 import java.util.Scanner;
 
 public class UserInterface {
-    Adventure adventure = new Adventure();
+    Map map = new Map();
     Player player;
     boolean gameRunning = true;
     Scanner scanner = new Scanner(System.in);
@@ -11,7 +11,7 @@ public class UserInterface {
     public void StartAdventure() {
 
         Scanner scanner = new Scanner(System.in);
-        player = adventure.player;
+        player = map.player;
 
         introduction();
 
@@ -23,7 +23,7 @@ public class UserInterface {
             brugerValg = scanner.next();
             switch (brugerValg) {
                 case "look":
-                    System.out.println(adventure.look());
+                    System.out.println(map.look());
                     break;
                 case "help":
                     help();
@@ -31,10 +31,10 @@ public class UserInterface {
                 case "n", "north", "go north", "walk north":
                     if (player.goNorth()) {
                         System.out.println("Going north!" + "\n"
-                                + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
-                                + adventure.getCurrentRoom().getDescription());
+                                + "You are now in the " + map.getCurrentRoom().getName() + "\n"
+                                + map.getCurrentRoom().getDescription());
                     }
-                    if (adventure.getCurrentRoom() == adventure.getEndRoom()) {
+                    if (map.getCurrentRoom() == map.getEndRoom()) {
                         gameRunning = false;
                         System.out.println("Congratulations, you have completed the game!");
                     } else System.out.println("There is no door that way");
@@ -42,16 +42,16 @@ public class UserInterface {
                 case "w", "west", "go west", "walk west":
                     if (player.goWest()) {
                         System.out.println("Going west!" + "\n"
-                                + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
-                                + adventure.getCurrentRoom().getDescription());
+                                + "You are now in the " + map.getCurrentRoom().getName() + "\n"
+                                + map.getCurrentRoom().getDescription());
                     } else
                         System.out.println(" There is no door that way");
                     break;
                 case "e", "east", "go east", "walk east":
                     if (player.goEast()) {
                         System.out.println("Going east!" + "\n"
-                                + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
-                                + adventure.getCurrentRoom().getDescription());
+                                + "You are now in the " + map.getCurrentRoom().getName() + "\n"
+                                + map.getCurrentRoom().getDescription());
                     } else
                         System.out.println("there is no door that way");
 
@@ -60,8 +60,8 @@ public class UserInterface {
                 case "s", "south", "go south", "walk south":
                     if (player.goSouth()) {
                         System.out.println("Going south!" + "\n"
-                                + "You are now in the " + adventure.getCurrentRoom().getName() + "\n"
-                                + adventure.getCurrentRoom().getDescription());
+                                + "You are now in the " + map.getCurrentRoom().getName() + "\n"
+                                + map.getCurrentRoom().getDescription());
                     } else System.out.println("there is no door that way");
                     break;
                 case "exit", "quit", "q":

@@ -1,7 +1,23 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Player {
     private Room currentRoom;
+    private ArrayList<Items> inventory = new ArrayList<>();
+    private Items newitem;
+
+    public ArrayList<Items> getInventory(){
+        return inventory;
+    }
+    public Items getItemFromInvetory(String itemName){
+        for(Items itemFromInventory : inventory) {
+            if (itemFromInventory.getItemName().contains(itemName)) {
+                return itemFromInventory;
+            }
+        }
+        return null;
+    }
 
     public boolean goNorth() {
         if (currentRoom.getNorth() == null) {

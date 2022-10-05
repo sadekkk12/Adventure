@@ -1,4 +1,7 @@
 package org.example;
+
+import java.util.ArrayList;
+
 public class Room {
     private String name;
     private String description;
@@ -42,33 +45,12 @@ public class Room {
         this.south = east;
         this.west = west;
     }
-
-    /* public Room getRoom(String direction) {
-        Room room = null;
-        switch (direction.toLowerCase()) {
-            case "north" -> room = north;
-            case "south" -> room = south;
-            case "east" -> room = east;
-            case "west" -> room = west;
-        }
-        return room;
+    public ArrayList<Items> roomItems = new ArrayList<>();
+    public void createItem(String itemName) {
+        Items item = new Items(itemName);
+        roomItems.add(item);
     }
-
-     public String getDirection(Room triedRoom) {
-        String direction = "";
-        if (north != null && triedRoom.getName().equals(north.getName())) {
-            direction = "north";
-        } else if (south != null && triedRoom.getName().equals(south.getName())) {
-            direction = "south";
-        } else if (east != null && triedRoom.getName().equals(east.getName())) {
-            direction = "east";
-        } else if (west != null && triedRoom.getName().equals(west.getName())) {
-            direction = "west";
-        }
-        return direction;
-
+    public void addItem(Items item) {
+        roomItems.add(item);
     }
-
-     */
-
 }
