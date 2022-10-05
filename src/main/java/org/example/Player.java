@@ -5,18 +5,29 @@ import java.util.ArrayList;
 public class Player {
     private Room currentRoom;
     private ArrayList<Items> inventory = new ArrayList<>();
-    private Items newitem;
+    private Items newItem;
 
-    public ArrayList<Items> getInventory(){
+    public ArrayList<Items> getInventory() {
         return inventory;
     }
-    public Items getItemFromInvetory(String itemName){
-        for(Items itemFromInventory : inventory) {
+
+    public Items getItemFromInventory(String itemName) {
+        for (Items itemFromInventory : inventory) {
             if (itemFromInventory.getItemName().contains(itemName)) {
                 return itemFromInventory;
             }
         }
         return null;
+    }
+
+    public Items getItem(String searchTerm) {
+        ArrayList<Items> searchResult = getCurrentRoom().getAllItems();
+        for (Items item : searchResult) {
+            if (item.getItemName().contains(searchTerm.toLowerCase())) {
+                newItem = item;
+            }
+        }
+        return newItem;
     }
 
     public boolean goNorth() {
@@ -62,20 +73,15 @@ public class Player {
     public Room getCurrentRoom() {
         return currentRoom;
     }
+
+    public Items removeItem(String name) {
+        for (Items item : inventory) {
+            if (item.getItemName().equals(name)) {
+                inventory.remove(item);
+                return item;
+            }
+        }
+        return null;
+    }
 }
 
-/*  public boolean goNorth() {
-        return player.goNorth();
-    }
-
-    public boolean goWest() {
-        return player.goWest();
-    }
-
-    public boolean goEast() {
-        return player.goEast();
-    }
-    public boolean goSouth() {
-        return player.goSouth();
-
-    */

@@ -45,12 +45,19 @@ public class Room {
         this.south = east;
         this.west = west;
     }
+
     public ArrayList<Items> roomItems = new ArrayList<>();
+
     public void createItem(String itemName) {
         Items item = new Items(itemName);
         roomItems.add(item);
     }
+
     public void addItem(Items item) {
         roomItems.add(item);
+    }
+
+    public ArrayList<Items> getAllItems() {
+        return roomItems;
     }
 }

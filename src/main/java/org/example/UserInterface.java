@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class UserInterface {
     Map map = new Map();
     Player player;
+    Adventure adventure;
     boolean gameRunning = true;
     Scanner scanner = new Scanner(System.in);
 
@@ -15,12 +16,19 @@ public class UserInterface {
 
         introduction();
 
-        String brugerValg;
+        String input;
+        input = scanner.next().toLowerCase();
+        String [] inputs = input.split(" ");
+        String brugerValg = inputs[0];
+        String itemValg = "";
+        if (inputs.length > 1) {
+            itemValg = inputs[1];
+        }
+
 
 
         do {
 
-            brugerValg = scanner.next();
             switch (brugerValg) {
                 case "look":
                     System.out.println(map.look());
@@ -64,6 +72,32 @@ public class UserInterface {
                                 + map.getCurrentRoom().getDescription());
                     } else System.out.println("there is no door that way");
                     break;
+                case "take","add":
+                    String itemName = itemValg;
+                    Items itemPickUp = adventure.takeItem(itemName);
+
+                    if (itemPickUp == null) {
+                        System.out.println("No item like that in this room");
+                    } else {
+                        System.out.println("You have picked up the " + itemPickUp.getItemName());
+                        player.getInventory().add(itemPickUp);
+                        adventure.getCurrentRoom().roomItems.remove(itemPickUp);
+                    }
+                    break;
+
+
+                case "drop", "d", "leave":
+                    String droppedItem = itemValg;
+                    Items itemToDrop = player.removeItem(droppedItem);
+
+                    if (itemToDrop == null) {
+                        System.out.println("No such item in Inventory");
+                    } else {
+                        System.out.println("you have dropped " + itemToDrop.getItemName());
+                        player.getCurrentRoom().addItem(itemToDrop);
+                    }
+                    break;
+
                 case "exit", "quit", "q":
                     System.out.println("The game is ending");
                     gameRunning = false;
