@@ -21,9 +21,10 @@ public class Player {
     }
 
     public Items getItem(String searchTerm) {
+        newItem = null;
         ArrayList<Items> searchResult = getCurrentRoom().getAllItems();
         for (Items item : searchResult) {
-            if (item.getItemName().contains(searchTerm.toLowerCase())) {
+            if (item.getItemName().equals(searchTerm.toLowerCase())) {
                 newItem = item;
             }
         }

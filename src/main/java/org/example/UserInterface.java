@@ -16,22 +16,19 @@ public class UserInterface {
 
         introduction();
 
-        String input;
-        input = scanner.next().toLowerCase();
-        String [] inputs = input.split(" ");
-        String brugerValg = inputs[0];
-        String itemValg = "";
-        if (inputs.length > 1) {
-            itemValg = inputs[1];
-        }
-
-
 
         do {
-
+            String input;
+            input = scanner.nextLine().toLowerCase();
+            String[] inputs = input.split(" ");
+            String brugerValg = inputs[0];
+            String itemValg = "";
+            if (inputs.length > 1) {
+                itemValg = inputs[1];
+            }
             switch (brugerValg) {
                 case "look":
-                    System.out.println(map.look());
+                    System.out.println(look());
                     break;
                 case "help":
                     help();
@@ -72,21 +69,22 @@ public class UserInterface {
                                 + map.getCurrentRoom().getDescription());
                     } else System.out.println("there is no door that way");
                     break;
-                case "take","add":
+                case "take", "add":
                     String itemName = itemValg;
-                    Items itemPickUp = adventure.takeItem(itemName);
+                    Items itemPickUp = player.getItem(itemName);
 
                     if (itemPickUp == null) {
-                        System.out.println("No item like that in this room");
+                        System.out.println("There is no item by that name");
                     } else {
-                        System.out.println("You have picked up the " + itemPickUp.getItemName());
+                        System.out.println("You have picked up " + itemPickUp.getItemName());
                         player.getInventory().add(itemPickUp);
-                        adventure.getCurrentRoom().roomItems.remove(itemPickUp);
+                        map.getCurrentRoom().roomItems.remove(itemPickUp);
+
                     }
                     break;
 
 
-                case "drop", "d", "leave":
+                case "drop", "leave":
                     String droppedItem = itemValg;
                     Items itemToDrop = player.removeItem(droppedItem);
 
@@ -94,10 +92,15 @@ public class UserInterface {
                         System.out.println("No such item in Inventory");
                     } else {
                         System.out.println("you have dropped " + itemToDrop.getItemName());
-                        player.getCurrentRoom().addItem(itemToDrop);
+                        map.getCurrentRoom().addItem(itemToDrop);
                     }
                     break;
-
+                case "inventory", "i":
+                    if (player.getInventory().isEmpty()) {
+                        System.out.println("Your inventory is empty!");
+                    } else
+                        System.out.println(player.getInventory());
+                    break;
                 case "exit", "quit", "q":
                     System.out.println("The game is ending");
                     gameRunning = false;
@@ -108,34 +111,39 @@ public class UserInterface {
         } while (gameRunning);
 
     }
-        public void introduction () {
-            System.out.println(" ");
-            System.out.println("Welcome to the Adventure. You will be teleported into a labyrinth which consists of 9  rooms!" +
-                    " The danger of these rooms is unknown, so tread carefully! Your only way out is finding the exit room! ");
-            System.out.println(" ");
-            System.out.println("You can find help on what do to by the help of these commandos");
-            System.out.println("look    - Repeat of room description");
-            System.out.println("help   - To get an instruction and overview of possible commandos");
-            System.out.println("exit/quit    - Disconntinue the game");
 
+    public void introduction() {
+        System.out.println(" ");
+        System.out.println("Welcome to the Adventure. You will be teleported into a labyrinth which consists of 9  rooms!" +
+                " The danger of these rooms is unknown, so tread carefully! Your only way out is finding the exit room! ");
+        System.out.println(" ");
+        System.out.println("You can find help on what do to by the help of these commandos");
+        System.out.println("look    - Repeat of room description");
+        System.out.println("help   - To get an instruction and overview of possible commandos");
+        System.out.println("exit/quit    - Disconntinue the game");
+
+    }
+
+    public void help() {
+        System.out.println("This is an overview of the allowed commandos" + "\n"
+                + "- n, north, go north, walk north" + "\n"
+                + "- w, west, go west, walk west" + "\n"
+                + "- e, east, go east, walk east" + "\n"
+                + "- s, south, go south, walk south" + "\n"
+                + "- Look " + "\n"
+                + "- exit");
+
+    }
+
+    public String look() {
+        String currentRoomDescirption = player.getCurrentRoom().getName() + "\n" + player.getCurrentRoom().getDescription();
+        for (int i = 0; i < map.getCurrentRoom().roomItems.size(); i++) {
+            System.out.print(map.getCurrentRoom().roomItems.get(i));
         }
-        public void help () {
-            System.out.println("This is an overview of the allowed commandos" + "\n"
-                    + "- n, north, go north, walk north" + "\n"
-                    + "- w, west, go west, walk west" + "\n"
-                    + "- e, east, go east, walk east" + "\n"
-                    + "- s, south, go south, walk south" + "\n"
-                    + "- Look " + "\n"
-                    + "- exit");
+        return currentRoomDescirption;
 
-        }
-        public void userInput() {
-        // String direction = scanner.nextLine();
-           // switch (direction) {
+    }
 
-        }
-
-
-        }
+}
 
 

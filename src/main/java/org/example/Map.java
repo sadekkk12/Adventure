@@ -33,11 +33,13 @@ public class Map {
         return room1;
     }
 
-    public String look() {
+   /* public String look() {
         String currentRoomDescirption = player.getCurrentRoom().getName() + "\n" + player.getCurrentRoom().getDescription();
         return currentRoomDescirption;
     }
 
+
+    */
     public void createRooms() {  //Creator rooms med hver rooms værdier sat i north, east, south og west
 
         room1.setRoom(null, room2, room4, null);
@@ -54,10 +56,10 @@ public class Map {
         startingRoom = room1;
         player.setCurrentRoom(startingRoom);
 
-        room1.createItem("Iphone with cracked screen");
-        room2.createItem("5 Coins");
-        room3.createItem("Nike sneakers");
-        room4.createItem("Old Gasmask");
+        room1.createItem("iphone");
+        room2.createItem("Coins");
+        room3.createItem("Sneakers");
+        room4.createItem("Gasmask");
         room6.createItem("Crossbow");
         room7.createItem("Hammer");
         room8.createItem("Book");
