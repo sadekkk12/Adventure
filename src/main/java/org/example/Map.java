@@ -57,13 +57,13 @@ public class Map {
         player.setCurrentRoom(startingRoom);
 
         room1.createItem("iphone");
-        room2.createItem("Coins");
-        room3.createItem("Sneakers");
-        room4.createItem("Gasmask");
-        room6.createItem("Crossbow");
-        room7.createItem("Hammer");
-        room8.createItem("Book");
-        room9.createItem("Torch");
+        room2.createItem("coins");
+        room3.createItem("sneakers");
+        room4.createItem("gasmask");
+        room6.createItem("crossbow");
+        room7.createItem("hammer");
+        room8.createItem("book");
+        room9.createItem("torch");
         room9.createItem("lighter");
     }
 

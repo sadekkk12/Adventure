@@ -136,10 +136,17 @@ public class UserInterface {
     }
 
     public String look() {
-        String currentRoomDescirption = player.getCurrentRoom().getName() + "\n" + player.getCurrentRoom().getDescription();
+        String currentRoomDescirption = player.getCurrentRoom().getName() + "\n" + player.getCurrentRoom().getDescription() + "\n";
+        currentRoomDescirption += "items in this room are: ";
         for (int i = 0; i < map.getCurrentRoom().roomItems.size(); i++) {
-            System.out.print(map.getCurrentRoom().roomItems.get(i));
+            if (!currentRoomDescirption.isEmpty()) {
+
+
+            }
+            currentRoomDescirption = currentRoomDescirption + map.getCurrentRoom().roomItems.get(i) + " and ";
         }
+        currentRoomDescirption = currentRoomDescirption.substring(0,currentRoomDescirption.length()-5);
+
         return currentRoomDescirption;
 
     }
