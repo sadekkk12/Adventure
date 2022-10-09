@@ -33,13 +33,6 @@ public class Map {
         return room1;
     }
 
-   /* public String look() {
-        String currentRoomDescirption = player.getCurrentRoom().getName() + "\n" + player.getCurrentRoom().getDescription();
-        return currentRoomDescirption;
-    }
-
-
-    */
     public void createRooms() {  //Creator rooms med hver rooms værdier sat i north, east, south og west
 
         room1.setRoom(null, room2, room4, null);
@@ -57,8 +50,10 @@ public class Map {
         player.setCurrentRoom(startingRoom);
 
         room1.createItem("iphone");
+        room1.createFoodItem("redbull", 25);
         room2.createItem("coins");
         room3.createItem("sneakers");
+        room3.createFoodItem("banana", 30);
         room4.createItem("gasmask");
         room6.createItem("crossbow");
         room7.createItem("hammer");
@@ -66,41 +61,6 @@ public class Map {
         room9.createItem("torch");
         room9.createItem("lighter");
     }
-
-/*
-public boolean goNorth() {
-    if (currentRoom.getNorth() == null) {
-        return false;
-    } else {
-        currentRoom = currentRoom.getNorth();
-        return true;
-    }
-}
-    public boolean goWest() {
-        if (currentRoom.getWest() == null) {
-            return false;
-        } else {
-            currentRoom = currentRoom.getWest();
-            return true;
-        }
-    }
-    public boolean goEast() {
-        if (currentRoom.getEast() == null) {
-            return false;
-        } else {
-            currentRoom = currentRoom.getEast();
-            return true;
-        }
-    }
-    public boolean goSouth() {
-        if (currentRoom.getSouth() == null) {
-            return false;
-        } else {
-            currentRoom = currentRoom.getSouth();
-            return true;
-        }
-    }
-*/
 
 }
 

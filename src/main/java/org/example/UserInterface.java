@@ -101,6 +101,22 @@ public class UserInterface {
                     } else
                         System.out.println(player.getInventory());
                     break;
+                case "health", "h":
+                    System.out.println("health: " + player.getHp());
+                    break;
+                case "eat":
+                    String itemToEat = itemValg;
+                    Items eatFrominventory = player.getItemFromInventory(itemValg);
+                    if (itemToEat == null) {
+                        System.out.println("There is no food in inventory");
+                    }
+                    if (player.getItemFromInventory(itemValg) instanceof Food) {
+                        player.getInventory().remove(itemValg);
+                        player.heal(((Food) eatFrominventory).getHpAdd());
+                        System.out.println("Food has been eaten");
+                    }
+                    break;
+
                 case "exit", "quit", "q":
                     System.out.println("The game is ending");
                     gameRunning = false;
@@ -131,7 +147,13 @@ public class UserInterface {
                 + "- e, east, go east, walk east" + "\n"
                 + "- s, south, go south, walk south" + "\n"
                 + "- Look " + "\n"
-                + "- exit");
+                + "- exit" + "\n"
+                + "- take 'itemname'" + "\n"
+                + "- drop 'itemname'"+ "\n"
+                + "- inventory" + "\n"
+                + "- health");
+
+
 
     }
 

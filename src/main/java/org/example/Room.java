@@ -52,6 +52,10 @@ public class Room {
         Items item = new Items(itemName);
         roomItems.add(item);
     }
+    public void createFoodItem(String itemName, int hpAdd) {
+        Food food = new Food(itemName, hpAdd);
+        roomItems.add(food);
+    }
 
     public void addItem(Items item) {
         roomItems.add(item);

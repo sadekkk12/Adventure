@@ -6,6 +6,8 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Items> inventory = new ArrayList<>();
     private Items newItem;
+    private int hp;
+    private static int HP_MAX = 100;
 
     public ArrayList<Items> getInventory() {
         return inventory;
@@ -29,6 +31,14 @@ public class Player {
             }
         }
         return newItem;
+    }
+    public void heal(int healAmount) {
+        if (hp + healAmount < HP_MAX)
+            hp += healAmount;
+        else hp = HP_MAX;
+    }
+    public int getHp(){
+        return hp;
     }
 
     public boolean goNorth() {
